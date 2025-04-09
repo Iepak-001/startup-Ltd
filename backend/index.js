@@ -3,12 +3,10 @@ dotenv.config({
     path: 'backend/.env'
 })
 
-import { connectDB,disconnectDB } from "./db/setup.db.js"
-import express from "express"
-import cors from "cors"
+import { app } from "./app.js";
 
-connectDB();
 
-setTimeout(disconnectDB,3000); 
-
+app.listen(process.env.APP_PORT || 8000, ()=>{
+    console.log( `Server is running at port: ${process.env.APP_PORT} \n`);  
+})
 

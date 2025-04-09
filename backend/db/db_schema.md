@@ -1,11 +1,14 @@
-## Database Tabeles
+## Database 
+
+- Using Pool insted of Client Connections
 
 ### Startup
 
 ID primary_key  
 Name  
 Ofiicial_Mail  
-Location  
+city
+pincode
 Launch date  
 Startup_Stage  
 
