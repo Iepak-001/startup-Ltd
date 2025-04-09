@@ -23,3 +23,4 @@ Startups Foriegn key refers startup.ID
 ID Primary_key
 Company_name
 Location
+Invested_In FK refers Startup-ID
