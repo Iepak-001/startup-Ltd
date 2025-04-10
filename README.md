@@ -1,3 +1,5 @@
-# startup-Ltd
+# Startup-Ltd
 
-ALL names are in ***CamelCase** !!!
+ALL names are in **CamelCase** !!!
+
+## Database Design 
