@@ -33,7 +33,7 @@ const Startup = () => {
       
       setStartups(data);
       setOffset(ITEMS_PER_PAGE);
-      setHasMore(data.length === ITEMS_PER_PAGE);
+      setHasMore(data.length <= ITEMS_PER_PAGE);
     } catch (err) {
       console.error("Error fetching startups:", err);
     }
@@ -41,12 +41,13 @@ const Startup = () => {
 
   const fetchMoreData = async () => {
     try {
-      
 
       const result = await axios.post(`${BASE_URL}/startups/fetch`,{
-        limit:offset
+        limit:ITEMS_PER_PAGE,
+        offset:offset,
       });
       const data = result.data;
+
       if (data.length === 0) {
         setHasMore(false);
         return;

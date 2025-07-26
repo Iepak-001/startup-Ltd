@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // import { CustomQuery } from '../utils/db';
 import BannerImage from "../assets/about-banner.jpeg";
+import ProfileImage from "../assets/profiledp.png";
+
 import { BASE_URL } from "../../constants";
 import axios from "axios";
 const StartupDetails = () => {
@@ -111,8 +113,7 @@ const StartupDetails = () => {
 
         <div className="ml-7 mt-4 flex flex-row items-center mb-4 gap-5">
           <h1 className="top-2 text-3xl">Business Model</h1>
-          <hr class="border-gray-500 border-3 shadow-2xs w-[70%] pr-2 pl-2"></hr>
-        </div>
+<hr class="border-gray-500 border-3 shadow-2xs w-full m-2 pr-2 pl-2"></hr>        </div>
 
         <div className="ml-7">
           {startup.business_model.map((val, i) => (

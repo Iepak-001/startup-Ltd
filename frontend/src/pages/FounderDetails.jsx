@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // import { CustomQuery } from '../utils/db';
-import BannerImage from "../assets/about-banner.jpeg";
+import BannerImage from "../assets/bannerImage.png";
+import ProfileImage from "../assets/profiledp.png";
+
 import { BASE_URL } from "../../constants";
 import axios from "axios";
 
+const forbiddenUrl="https://example.com/images";
 const FounderDetails = () => {
   const { id } = useParams();
   const [founder, setFounder] = useState(null);
@@ -45,7 +48,7 @@ const FounderDetails = () => {
         {/* container */}
         <div>
           <img
-            src={founder.banner_image}
+            src={founder.banner_image.startsWith(forbiddenUrl)?BannerImage:founder.banner_image}
             alt="bannerImage"
             className="w-full h-80 object-cover"
             style={{}}
@@ -54,8 +57,8 @@ const FounderDetails = () => {
 
         <div className="flex flex-row m-9 items-center">
           <img
-            src={founder.profile_image}
-            alt="bannerImage"
+            src={founder.profile_image.startsWith(forbiddenUrl)?ProfileImage:founder.profile_image}
+            alt="profileImage"
             className="w-70 h-60 object-cover rounded-2xl"
             style={{}}
           />
@@ -71,9 +74,9 @@ const FounderDetails = () => {
           Vison : {founder.vision}{" "}
         </div>
 
-        <div className="ml-7 mt-4 flex flex-row items-center mb-4 gap-5">
+        <div className="ml-7 mt-4 flex flex-row items-center mb-4">
           <h1 className="top-2 text-3xl">Education</h1>
-          <hr class="border-gray-500 border-3 shadow-2xs w-[70%] pr-2 pl-2"></hr>
+          <hr class="border-gray-500 border-3 shadow-2xs w-full m-2 pr-2 pl-2"></hr>
         </div>
 
         <div className="ml-7  p-2 m-2">
@@ -86,15 +89,14 @@ const FounderDetails = () => {
 
         <div className="ml-7 flex items-center mb-4 gap-5">
           <h1 className="top-2 text-3xl">Story</h1>
-          <hr class="border-gray-500 border-3 shadow-2xs w-full pr-2 pl-2"></hr>
+          <hr class="border-gray-500 border-3 shadow-2xs w-full m-2 pr-2 pl-2"></hr>
         </div>
 
         <div className="ml-7">{founder.story}</div>
         
-        <div className="ml-7 mt-4 flex flex-row items-center mb-4 gap-5">
+        <div className="ml-7 mt-4 flex flex-row items-center mb-4 ">
           <h1 className="top-2 text-3xl">Notable Achievements</h1>
-          <hr class="border-gray-500 border-3 shadow-2xs w-[70%] pr-2 pl-2"></hr>
-        </div>
+<hr class="border-gray-500 border-3 shadow-2xs w-full m-2 pr-2 pl-2"></hr>        </div>
 
         <div className="ml-7  p-2 m-2">
           {founder.notable_achievements.map((val,i)=>(
@@ -104,8 +106,7 @@ const FounderDetails = () => {
 
         <div className="ml-7 mt-4 flex flex-row items-center mb-4 gap-5">
           <h1 className="top-2 text-3xl">Awards</h1>
-          <hr class="border-gray-500 border-3 shadow-2xs w-[70%] pr-2 pl-2"></hr>
-        </div>
+<hr class="border-gray-500 border-3 shadow-2xs w-full m-2 pr-2 pl-2"></hr>        </div>
 
         <div className="ml-7  p-2 m-2">
           {founder.awards.map((val,i)=>(
@@ -115,8 +116,7 @@ const FounderDetails = () => {
 
         <div className="ml-7 mt-4 flex flex-row items-center mb-4 gap-5">
           <h1 className="top-2 text-3xl">Featured In</h1>
-          <hr class="border-gray-500 border-3 shadow-2xs w-[70%] pr-2 pl-2"></hr>
-        </div>
+<hr class="border-gray-500 border-3 shadow-2xs w-full m-2 pr-2 pl-2"></hr>        </div>
 
         <div className="ml-7  p-2 m-2">
           {founder.featured_in.map((val,i)=>(

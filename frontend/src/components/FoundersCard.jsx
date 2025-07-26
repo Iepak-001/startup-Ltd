@@ -1,17 +1,17 @@
-import DemoImage from "../assets/integrate.png";
+import DemoImage from "../assets/profiledp.png";
 import { Link } from "react-router-dom";
-
+const forbiddenUrl = "https://example.com/images";
 export const FounderCard = ({founder}) => {
   return (
     <>
      <Link to={`/founder/${founder._id}`}>
-      <div className="flex flex-row h-50 shadow-2xl m-2 overflow-hidden border-1 border-yellow-500 bg-white m-4 rounded-2xl hover:bg-gray-200 hover: cursor-alias ">
+      <div className="flex flex-row h-50 shadow-2xl m-2 overflow-hidden border-1 border-yellow-500 bg-white  rounded-2xl hover:bg-gray-200 hover: cursor-alias ">
         {/* container    */}
 
         <div className="overflow-hidden object-cover">
           <img
-            src={DemoImage}
-            className="w-40 h-40 object-cover rounded-2xl"
+            src={founder.profile_image.startsWith(forbiddenUrl)?DemoImage:founder.profile_image}
+            className="w-40 h-40 m-4 object-cover rounded-2xl justify-center"
             alt="Demo"
           />
         </div>

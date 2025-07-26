@@ -2,11 +2,11 @@ import {Startups} from "../models/startups.models.js"
 
 export const fetchStartups=async(req,res)=>{
     
-    const {limit}=req.body || null;
+    const {limit,offset}=req.body || null;
 
     console.log(limit);
 
-    const startup=await Startups.find().limit(limit);
+    const startup=await Startups.find().limit(limit).skip(offset);
 
     
     return res.status(201).json(startup)
