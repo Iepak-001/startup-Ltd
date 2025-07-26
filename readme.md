@@ -15,5 +15,5 @@ This project is a full-stack web application developed using ReactJS (frontend) 
 
 ## Images
 
-[](./image1.png)
-[](./image2.png)
+![](./image1.png)
+![](./image2.png)
